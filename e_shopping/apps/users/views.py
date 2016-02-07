@@ -15,7 +15,8 @@ from users.forms import RegistrationForm
 
 class RegisterView(View):
 
-    def get(self, request, *args, **kwargs):
+    @staticmethod
+    def get(request, *args, **kwargs):
         form = RegistrationForm()
         ctx = {"form": form}
         return render(request, "registration/register.html", ctx)

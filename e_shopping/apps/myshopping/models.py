@@ -64,7 +64,8 @@ class Cart(models.Model):
         verbose_name = 'cart'
         verbose_name_plural = 'carts'
 
-    def add(self,user,product,price,quantity):
+    @staticmethod
+    def add(user,product,price,quantity):
         try:
             cart, created = Cart.objects.get_or_create(user=user,
                 product=product,price=price, quantity= quantity)

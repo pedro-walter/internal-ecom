@@ -11,7 +11,8 @@ class AutoLogout:
     middleware to expire session of a user if user is inactive for 5 minutes
     """
 
-    def process_request(self, request):
+    @staticmethod
+    def process_request(request):
         if not request.user.is_authenticated():
             # Can't log out if not logged in
             return

@@ -7,7 +7,8 @@ from users.models import (UserProfile, Relationship)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ("user", "user_role", "product_count","product_price_limit")
 
-    def has_add_permission(self, request, obj=None):
+    @staticmethod
+    def has_add_permission(request, obj=None):
         return True
 
 

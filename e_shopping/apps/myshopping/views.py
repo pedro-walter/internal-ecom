@@ -25,7 +25,8 @@ class HomeView(View):
     """ Show Product with Category """
 
     @method_decorator(login_required)
-    def get(self, request, *args, **kwargs):
+    @staticmethod
+    def get(request, *args, **kwargs):
         categories = Category.objects.all()
         products = Product.objects.all()
         ctx = {'categories':categories,'products':products}
